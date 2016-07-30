@@ -45,7 +45,7 @@ function lex (source) {
           while ('\t\n\r '.indexOf(source[++index]) !== -1) {
             value += source[index]
           }
-          return {type: 'whitespace', value: value}
+          return {type: 'whitespace', value: value, raw: value}
         case '{':
         case '}':
         case '[':
@@ -54,12 +54,14 @@ function lex (source) {
         case ',':
           // Parse a punctuator token (`{`, `}`, `[`, `]`, `:`, or `,`) at
           // the current position.
-          return {type: 'punctuator', value: source[index++]}
+          var punctuator = source[index++]
+          return {type: 'punctuator', value: punctuator, raw: punctuator}
         case '"':
           // `"` delimits a JSON string; advance to the next character and
           // begin parsing the string. String tokens are prefixed with the
           // sentinel `@` character to distinguish them from punctuators and
           // end-of-string tokens.
+          var stringStartIndex = index
           for (value = '', index++; index < length;) {
             character = source[index]
             if (source.charCodeAt(index) < 32) {
@@ -121,7 +123,8 @@ function lex (source) {
           if (source[index] === '"') {
             // Advance to the next character and return the revived string.
             index++
-            return { type: 'string', value: value }
+            var rawString = source.slice(stringStartIndex, index)
+            return { type: 'string', value: value, raw: rawString }
           }
           return abort('Unterminated string.')
         default:
@@ -172,7 +175,8 @@ function lex (source) {
               index = position
             }
             // Coerce the parsed value to a JavaScript number.
-            return {type: 'number', value: +source.slice(begin, index)}
+            var numberString = source.slice(begin, index)
+            return {type: 'number', value: +numberString, raw: numberString}
           }
           if (isSigned) {
             return abort('A negative sign may only precede numbers.')
@@ -181,13 +185,13 @@ function lex (source) {
           var temp = source.slice(index, index + 4)
           if (temp === 'true') {
             index += 4
-            return {type: 'literal', value: true}
+            return {type: 'literal', value: true, raw: 'true'}
           } else if (temp === 'fals' && source[index + 4] === 'e') {
             index += 5
-            return {type: 'literal', value: false}
+            return {type: 'literal', value: false, raw: 'false'}
           } else if (temp === 'null') {
             index += 4
-            return {type: 'literal', value: null}
+            return {type: 'literal', value: null, raw: 'null'}
           }
           return abort('Unrecognized token.')
       }
