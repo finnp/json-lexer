@@ -16,12 +16,30 @@ like `"token"}:` happily.
 
 ```js
 var lexer = require('json-lexer')
-lexer('{"hello": "world"}')
+lexer('{"hello": 1}')
 // results in
 [ { type: 'punctuator', value: '{' },
   { type: 'string', value: 'hello' },
   { type: 'punctuator', value: ':' },
   { type: 'whitespace', value: ' ' },
-  { type: 'string', value: 'world' },
+  { type: 'number', value: 1 },
   { type: 'punctuator', value: '}' } ]
 ```
+
+## types
+
+### whitespace
+Allowed white space between the actual relevant tokens.
+
+### punctuator
+The characters surrounding your data: `{`, `}`, `:` and `,`
+
+### string
+A JSON string `"hi"`, not that the value will be the parsed String without `"`
+
+### number
+A JSON number, like `1`, `-1` or `1e1000`. The value will be the parsed number.
+
+### literal
+One of the allowed literals `true`, `false` and `null`. The value will be the
+specific JS literal.
