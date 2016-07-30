@@ -1,12 +1,12 @@
 {
   "name": "json-lexer",
-  "version": "1.0.0",
   "description": "lexing json",
   "main": "index.js",
   "scripts": {
     "pretest": "standard",
     "test": "nyc tape --no-cov test.js",
-    "test:coverage": "nyc report --reporter=text-lcov | coveralls"
+    "test:coverage": "nyc report --reporter=text-lcov | coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": "Finn Pauls",
   "license": "ISC",
@@ -16,11 +16,12 @@
   "devDependencies": {
     "coveralls": "2.11.12",
     "nyc": "7.1.0",
-    "tape": "4.6.0"
+    "tape": "4.6.0",
+    "semantic-release": "^4.3.5"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/finnp/json-lexer.git"
+    "url": "https://github.com/finnp/json-lexer.git"
   },
   "keywords": [
     "tokens",
