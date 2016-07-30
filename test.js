@@ -38,7 +38,35 @@ test('lexer', function (t) {
     expectError(t, 'undefined', 'Unrecognized token.')
     t.end()
   })
-  t.test('objects', function () {
+  t.test('arrays', function (t) {
+    testCase(t, '[]', [
+      { type: 'punctuator', value: '[', raw: '[' },
+      { type: 'punctuator', value: ']', raw: ']' }
+    ])
+    testCase(t, '[1]', [
+      { type: 'punctuator', value: '[', raw: '[' },
+      { type: 'number', value: 1, raw: '1' },
+      { type: 'punctuator', value: ']', raw: ']' }
+    ])
+    testCase(t, '[1,2]', [
+      { type: 'punctuator', value: '[', raw: '[' },
+      { type: 'number', value: 1, raw: '1' },
+      { type: 'punctuator', value: ',', raw: ',' },
+      { type: 'number', value: 2, raw: '2' },
+      { type: 'punctuator', value: ']', raw: ']' }
+    ])
+    testCase(t, '[true,2,"3"]', [
+      { type: 'punctuator', value: '[', raw: '[' },
+      { type: 'literal', value: true, raw: 'true' },
+      { type: 'punctuator', value: ',', raw: ',' },
+      { type: 'number', value: 2, raw: '2' },
+      { type: 'punctuator', value: ',', raw: ',' },
+      { type: 'string', value: '3', raw: '"3"' },
+      { type: 'punctuator', value: ']', raw: ']' }
+    ])
+    t.end()
+  })
+  t.test('objects', function (t) {
     testCase(t, '{"a":"b"}', [
       { type: 'punctuator', value: '{', raw: '{' },
       { type: 'string', value: 'a', raw: '"a"' },
