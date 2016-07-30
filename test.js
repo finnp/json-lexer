@@ -22,7 +22,7 @@ test('lexer', function (t) {
     testCase(t, '""', [{ type: 'string', value: '' }])
     testCase(t, '"a"', [{ type: 'string', value: 'a' }])
     testCase(t, '"abcd"', [{ type: 'string', value: 'abcd' }])
-    testCase(t, '"\\"\\/\\b\\t\\n\\f\\r\\\\"', [{ type: 'string', value: '\"\/\b\t\n\f\r\\' }])
+    testCase(t, '"\\"\\/\\b\\t\\n\\f\\r\\\\"', [{ type: 'string', value: '"/\b\t\n\f\r\\' }])
     testCase(t, '"hi \\u0066\\u0069\\u006E\\u006E"', [{ type: 'string', value: 'hi finn' }])
     t.end()
   })

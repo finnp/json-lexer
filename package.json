@@ -4,8 +4,9 @@
   "description": "lexing json",
   "main": "index.js",
   "scripts": {
+    "pretest": "standard",
     "test": "nyc tape --no-cov test.js",
-    "test:coverage": "nyc report"
+    "test:coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "author": "Finn Pauls",
   "license": "ISC",
@@ -13,7 +14,24 @@
     "standard": "7.1.2"
   },
   "devDependencies": {
-    "tape": "4.6.0",
-    "nyc": "7.1.0"
-  }
+    "coveralls": "2.11.12",
+    "nyc": "7.1.0",
+    "tape": "4.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnp/json-lexer.git"
+  },
+  "keywords": [
+    "tokens",
+    "tokenize",
+    "whitespace",
+    "json",
+    "parse",
+    "parser"
+  ],
+  "bugs": {
+    "url": "https://github.com/finnp/json-lexer/issues"
+  },
+  "homepage": "https://github.com/finnp/json-lexer#readme"
 }
