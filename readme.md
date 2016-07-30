@@ -16,14 +16,14 @@ like `"token"}:` happily.
 
 ```js
 var lexer = require('json-lexer')
-lexer('{"hello": 1}')
+lexer('{"hello": 1.0}')
 // results in
-[ { type: 'punctuator', value: '{' },
-  { type: 'string', value: 'hello' },
-  { type: 'punctuator', value: ':' },
-  { type: 'whitespace', value: ' ' },
-  { type: 'number', value: 1 },
-  { type: 'punctuator', value: '}' } ]
+[ { type: 'punctuator', value: '{', raw: '{' },
+  { type: 'string', value: 'hello', raw: '"hello"' },
+  { type: 'punctuator', value: ':', raw: ':' },
+  { type: 'whitespace', value: ' ', raw: ' ' },
+  { type: 'number', value: 1, raw: '1.0' },
+  { type: 'punctuator', value: '}', raw: '}' } ]
 ```
 
 ## types
