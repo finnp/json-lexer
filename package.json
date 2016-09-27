@@ -15,7 +15,7 @@
     "coveralls": "2.11.14",
     "nyc": "8.3.0",
     "semantic-release": "^4.3.5",
-    "standard": "8.1.0",
+    "standard": "8.2.0",
     "tape": "4.6.0"
   },
   "repository": {
