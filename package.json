@@ -10,12 +10,11 @@
   },
   "author": "Finn Pauls",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.11.14",
     "nyc": "^10.1.0",
     "semantic-release": "^4.3.5",
-    "standard": "^8.3.0",
+    "standard": "*",
     "tape": "^4.6.1"
   },
   "repository": {

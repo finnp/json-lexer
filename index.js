@@ -93,7 +93,7 @@ function lex (source) {
                     charCode = source.charCodeAt(index)
                     // A valid sequence comprises four hexdigits (case-
                     // insensitive) that form a single hexadecimal value.
-                    if (!(charCode >= 48 && charCode <= 57 || charCode >= 97 && charCode <= 102 || charCode >= 65 && charCode <= 70)) {
+                    if (!((charCode >= 48 && charCode <= 57) || (charCode >= 97 && charCode <= 102) || (charCode >= 65 && charCode <= 70))) {
                       return abort('Invalid Unicode escape sequence.')
                     }
                   }
