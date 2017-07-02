@@ -32,7 +32,7 @@ lexer('{"hello": 1.0}')
 Allowed white space between the actual relevant tokens.
 
 ### punctuator
-The characters surrounding your data: {`, `}`, `[`, `]`, `:` and `,`
+The characters surrounding your data: `{`, `}`, `[`, `]`, `:` and `,`
 
 ### string
 A JSON string `"hi"`, not that the value will be the parsed String without `"`
