@@ -146,8 +146,8 @@ function lex (source) {
             isSigned = false
             // Parse the integer component.
             for (; index < length && ((charCode = source.charCodeAt(index)), charCode >= 48 && charCode <= 57); index++);
-              // Floats cannot contain a leading decimal point; however, this
-              // case is already accounted for by the parser.
+            // Floats cannot contain a leading decimal point; however, this
+            // case is already accounted for by the parser.
             if (source.charCodeAt(index) === 46) {
               position = ++index
               // Parse the decimal component.
