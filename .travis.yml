@@ -9,6 +9,7 @@ node_js:
   - '4'
   - '6'
   - '7'
+  - '10'
 before_install:
   - npm i -g npm@^2.0.0
 before_script:
