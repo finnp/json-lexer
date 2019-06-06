@@ -11,7 +11,7 @@
   "author": "Finn Pauls",
   "license": "ISC",
   "devDependencies": {
-    "coveralls": "^2.11.14",
+    "coveralls": "^3.0.4",
     "nyc": "^11.0.1",
     "semantic-release": "^4.3.5",
     "standard": "*",
