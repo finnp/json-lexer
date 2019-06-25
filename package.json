@@ -13,7 +13,7 @@
   "devDependencies": {
     "coveralls": "^2.11.14",
     "nyc": "^11.0.1",
-    "semantic-release": "^4.3.5",
+    "semantic-release": "^15.13.17",
     "standard": "*",
     "tape": "^4.6.1"
   },
