@@ -15,7 +15,7 @@
     "nyc": "^11.0.1",
     "semantic-release": "^4.3.5",
     "standard": "*",
-    "tape": "^4.6.1"
+    "tape": "^4.11.0"
   },
   "repository": {
     "type": "git",
