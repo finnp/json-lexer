@@ -3,6 +3,10 @@
   "description": "lexing json",
   "main": "index.js",
   "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
     "pretest": "standard",
     "test": "nyc tape --no-cov test.js",
