@@ -2,6 +2,7 @@
   "name": "json-lexer",
   "description": "lexing json",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "pretest": "standard",
     "test": "nyc tape --no-cov test.js",
